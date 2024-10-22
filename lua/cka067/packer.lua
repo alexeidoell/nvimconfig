@@ -82,5 +82,11 @@ return require('packer').startup(function(use)
   use("laytan/cloak.nvim")
   use("mfussenegger/nvim-dap")
   use("p00f/clangd_extensions.nvim")
+  use({
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  })
 
 end)
