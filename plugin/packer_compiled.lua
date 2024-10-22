@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/alexeidoell/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -145,7 +145,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-autopairs"] = {
-    config = { "\27LJ\2\2@\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -169,7 +169,7 @@ _G.packer_plugins = {
   },
   ["nvim-notify"] = {
     loaded = true,
-    path = "/student/cka067/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
@@ -181,6 +181,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
+  ["oil.nvim"] = {
+    config = { "\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim]\0\2\6\0\5\0\r6\2\0\0009\2\1\2\18\4\0\0'\5\2\0B\2\3\2\14\0\2\0X\3\5€6\2\0\0009\2\3\2\18\4\0\0'\5\4\0B\2\3\2L\2\2\0\t.git\15deep_equal\a..\15startswith\bvimç\1\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\3\16show_hidden\2\18natural_order\2\21case_insensitive\1\nsetup\boil\frequire\0" },
+    loaded = true,
+    path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -207,19 +213,13 @@ _G.packer_plugins = {
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\0029\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
-    loaded = true,
-    path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\2C\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
@@ -234,6 +234,12 @@ _G.packer_plugins = {
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  yorumi = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23colorscheme yorumi\bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/yorumi",
+    url = "https://github.com/yorumicolors/yorumi.nvim"
+  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/home/alexeidoell/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
@@ -242,18 +248,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\0029\0\0\2\0\3\0\0056\0\0\0009\0\1\0'\1\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
+-- Config for: yorumi
+time([[Config for yorumi]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\23colorscheme yorumi\bcmd\bvim\0", "config", "yorumi")
+time([[Config for yorumi]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
-<<<<<<< HEAD
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
-=======
-try_loadstring("\27LJ\2\2C\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
+-- Config for: oil.nvim
+time([[Config for oil.nvim]], true)
+try_loadstring("\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim]\0\2\6\0\5\0\r6\2\0\0009\2\1\2\18\4\0\0'\5\2\0B\2\3\2\14\0\2\0X\3\5€6\2\0\0009\2\3\2\18\4\0\0'\5\4\0B\2\3\2L\2\2\0\t.git\15deep_equal\a..\15startswith\bvimç\1\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\3\16show_hidden\2\18natural_order\2\21case_insensitive\1\nsetup\boil\frequire\0", "config", "oil.nvim")
+time([[Config for oil.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
@@ -261,7 +267,6 @@ time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-autopairs'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
->>>>>>> ff3f25f (updated config)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
