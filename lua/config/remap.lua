@@ -1,9 +1,10 @@
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 vim.keymap.set("n", "<leader>pe", function()
     Snacks.dashboard()
 end)
+vim.keymap.set("n", "<leader>pq", "<CMD>Lazy<CR>")
+
 
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -43,3 +44,6 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)

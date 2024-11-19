@@ -54,38 +54,49 @@ return {
         "stevearc/oil.nvim",
         ---@module 'oil'
         ---@type oil.SetupOpts
-        config = function()
-            require("oil").setup({
-                view_options = {
-                    -- Show files and directories that start with "."
-                    show_hidden = true,
-                    -- This function defines what is considered a "hidden" file
-                    is_hidden_file = function(name, bufnr)
-                        return vim.startswith(name, ".")
-                    end,
-                    -- This function defines what will never be shown, even when `show_hidden` is set
-                    is_always_hidden = function(name, bufnr)
-                        return vim.startswith(name, "..") or vim.deep_equal(name, ".git")
-                    end,
-                    -- Sort file names in a more intuitive order for humans. Is less performant,
-                    -- so you may want to set to false if you work with large directories.
-                    natural_order = true,
-                    -- Sort file and directory names case insensitive
-                    case_insensitive = false,
-                    sort = {
-                        -- sort order can be "asc" or "desc"
-                        -- see :help oil-columns to see which columns are sortable
-                        { "type", "asc" },
-                        { "name", "asc" },
-                    },
+        opts = {
+            view_options = {
+                -- Show files and directories that start with "."
+                show_hidden = true,
+                -- This function defines what is considered a "hidden" file
+                is_hidden_file = function(name, bufnr)
+                    return vim.startswith(name, ".")
+                end,
+                -- This function defines what will never be shown, even when `show_hidden` is set
+                is_always_hidden = function(name, bufnr)
+                    return vim.startswith(name, "..") or vim.deep_equal(name, ".git")
+                end,
+                -- Sort file names in a more intuitive order for humans. Is less performant,
+                -- so you may want to set to false if you work with large directories.
+                natural_order = true,
+                -- Sort file and directory names case insensitive
+                case_insensitive = false,
+                sort = {
+                    -- sort order can be "asc" or "desc"
+                    -- see :help oil-columns to see which columns are sortable
+                    { "type", "asc" },
+                    { "name", "asc" },
                 },
-            })
-        end,
+            },
+        },
     },
     {
         "theprimeagen/harpoon",
-        opts = {},
+        lazy = true,
+        opts = function()
+            local mark = require("harpoon.mark")
+            local ui = require("harpoon.ui")
+
+            vim.keymap.set("n", "<leader>a", mark.add_file)
+            vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+            vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
+            vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
+            vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
+            vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
+        end,
     },
+    --- cringe vim plugins...
     {
         "mbbill/undotree",
     },
@@ -93,7 +104,10 @@ return {
         "tpope/vim-fugitive",
     },
     {
-        "nvim-treesitter/nvim-treesitter-context",
-        opts = {},
+        "yutkat/confirm-quit.nvim",
+        lazy = true,
+        opts = {
+            overwrite_q_command = false,
+        },
     },
 }
