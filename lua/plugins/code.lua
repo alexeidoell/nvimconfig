@@ -4,7 +4,7 @@ return {
 		branch = "v3.x",
         lazy = true,
         event = "BufRead",
-		dependencies = 
+		dependencies =
 		{
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
