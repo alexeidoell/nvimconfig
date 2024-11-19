@@ -1,6 +1,8 @@
 return {
     "stevearc/oil.nvim",
-    opts = {
+    lazy = true,
+    init = function()
+        require("oil").setup()
         view_options = {
             -- Show files and directories that start with "."
             show_hidden = true,
@@ -24,6 +26,6 @@ return {
                 { "name", "asc" },
             },
         }
-    },
+    end,
 }
 
