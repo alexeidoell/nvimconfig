@@ -1,1 +1,2 @@
-require("cka067")
+require("config")
+require("config.lazy")
