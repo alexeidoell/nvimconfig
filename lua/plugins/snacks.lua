@@ -2,7 +2,6 @@ return {
     {
         "folke/snacks.nvim",
         priority = 1000,
-        lazy = false,
         opts = {
             dashboard = {
                 width = 18,
@@ -14,7 +13,7 @@ return {
                         { icon = "", key = "r", desc = "recent file", action = ":lua Snacks.dashboard.pick('oldfiles')" },
                         { icon = "", key = "c", desc = "config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", },
                         { icon = "", key = "s", desc = "session", section = "session" },
-                        { icon = "", key = "L", desc= "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+                        { icon = "", key = "l", desc= "lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
                         { icon = "", key = "q", desc = "quit", action = function()
                             require("confirm-quit").confirm_quit()
                         end, },
@@ -25,7 +24,7 @@ return {
                     key = { "" },
                 },
             },
-            notifier = { 
+            notifier = {
                 style = "compact",
                 icons = {
                     error = "",
