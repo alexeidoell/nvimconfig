@@ -72,7 +72,21 @@ return {
                 vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
                 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+                client.server_capabilities.semanticTokensProvider = nil
             end)
+            vim.api.nvim_create_autocmd('LspAttach', {
+                callback = function(event)
+                    local id = vim.tbl_get(event, 'data', 'client_id')
+                    local client = id and vim.lsp.get_client_by_id(id)
+                    if client == nil then
+                        return
+                    end
+
+                    client.server_capabilities.semanticTokensProvider = nil
+                end
+            })
+
 
             -- to learn how to use mason.nvim with lsp-zero
             -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
