@@ -2,7 +2,7 @@ return {
     {
         "yorumicolors/yorumi.nvim",
         name = "yorumi",
-        config = function()
+        init = function()
             vim.cmd.colorscheme("yorumi")
         end,
     },
