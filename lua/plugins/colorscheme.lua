@@ -1,9 +1,8 @@
 return {
     {
         "yorumicolors/yorumi.nvim",
-        lazy = true,
         name = "yorumi",
-        init = function()
+        config = function()
             vim.cmd.colorscheme("yorumi")
         end,
     },
