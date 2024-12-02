@@ -126,4 +126,9 @@ return {
             })
         end,
     },
+    {
+        'NMAC427/guess-indent.nvim',
+        lazy = true,
+        event = "BufRead",
+    },
 }
