@@ -18,14 +18,31 @@ return {
                             require("confirm-quit").confirm_quit()
                         end, },
                     },
-                    header = [[]],
                 },
                 formats = {
                     key = { "" },
                 },
                 sections = {
                     { section = "keys", gap = 1, padding = 1 },
-                    { section = "startup"},
+                    function()
+                        local M = setmetatable({}, {
+                            __call = function(M, opts)
+                                return M.open(opts)
+                            end,
+                        })
+                        M.lazy_stats = M.lazy_stats and M.lazy_stats.startuptime > 0 and M.lazy_stats or require("lazy.stats").stats()
+                        local ms = (math.floor(M.lazy_stats.startuptime * 100 + 0.5) / 100)
+                        return {
+                            align = "center",
+                            text = {
+                                { "Neovim loaded ", hl = "footer" },
+                                { M.lazy_stats.loaded .. "/" .. M.lazy_stats.count, hl = "special" },
+                                { " plugins in ", hl = "footer" },
+                                { ms .. "ms", hl = "special" },
+                            },
+                        }
+
+                    end,
                 }
             },
             notifier = {
