@@ -35,7 +35,7 @@ return {
                         return {
                             align = "center",
                             text = {
-                                { "Neovim loaded ", hl = "footer" },
+                                { "nvim loaded ", hl = "footer" },
                                 { M.lazy_stats.loaded .. "/" .. M.lazy_stats.count, hl = "special" },
                                 { " plugins in ", hl = "footer" },
                                 { ms .. "ms", hl = "special" },
