@@ -2,6 +2,8 @@ return {
     {
         "folke/snacks.nvim",
         priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
         opts = {
             dashboard = {
                 width = 18,
@@ -9,7 +11,7 @@ return {
                     keys = {
                         { icon = "", key = "e", desc = "explorer", action = "<CMD>Oil<CR>" },
                         { icon = "", key = "r", desc = "recent file", section = "session" },
-                        { icon = "", key = "f", desc = "find file", action = ":lua Snacks.dashboard.pick('files')", },
+                        { icon = "", key = "f", desc = "find file", action = ":lua Snacks.dashboard.pick('smart')", },
                         { icon = "", key = "n", desc = "new file", action = ":ene | startinsert" },
                         { icon = "", key = "s", desc = "search text", action = ":lua Snacks.dashboard.pick('live_grep')" },
                         { icon = "", key = "c", desc = "config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", },
@@ -56,6 +58,13 @@ return {
                 },
             },
             words = { enabled = true },
+            picker = { enabled = true },
         },
+        keys = {
+            {"<leader>pf", function() Snacks.picker.files() end },
+            {"<leader>ps", function() Snacks.picker.grep() end },
+            {"<leader>pr", function() Snacks.picker.smart() end },
+            {"<leader>pg", function() Snacks.picker.git_files() end },
+        }
     }
 }
