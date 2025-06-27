@@ -103,6 +103,7 @@ return {
                     "emmylua_ls",
                 }
             })
+
             require("config.lspconfig")
 
             -- this is the function that loads the extra snippets to luasnip

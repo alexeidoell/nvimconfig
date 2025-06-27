@@ -11,7 +11,6 @@ return {
     },
     {
         "theprimeagen/harpoon",
-        event = "BufReadPre",
         dependencies = {
             "nvim-lua/plenary.nvim"
         },
@@ -31,7 +30,9 @@ return {
     {
         'MeanderingProgrammer/render-markdown.nvim',
         lazy = true,
-        ft = "markdown",
+        ft = {
+            "markdown",
+        },
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {

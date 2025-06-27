@@ -29,6 +29,7 @@ end,
 vim.lsp.enable({
     'emmylua_ls',
     'clangd',
-    'lemminx'
+    'lemminx',
+    'rust_analyzer'
 })
 

@@ -7,7 +7,7 @@ return {
             -- A list of parser names, or "all"
             local configs = require("nvim-treesitter.configs")
             configs.setup({
-            ensure_installed = { "vimdoc", "c", "lua", "cpp", "markdown", "rust", "xml", },
+            ensure_installed = { "vimdoc", "c", "lua", "cpp", "markdown", "rust", "xml", "regex" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
