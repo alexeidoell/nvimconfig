@@ -62,9 +62,9 @@ return {
             scratch = { enabled = true },
         },
         keys = {
-            {"<leader>pf", function() Snacks.picker.files() end },
+            {"<leader>pd", function() Snacks.picker.files() end },
             {"<leader>ps", function() Snacks.picker.grep() end },
-            {"<leader>pr", function() Snacks.picker.smart() end },
+            {"<leader>pf", function() Snacks.picker.smart() end },
             {"<leader>pg", function() Snacks.picker.git_files() end },
             { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
             { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
