@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
-vim.keymap.set("n", "<leader>pe", function()
-    Snacks.dashboard()
-end)
 vim.keymap.set("n", "<leader>pq", "<CMD>Lazy<CR>")
 
 

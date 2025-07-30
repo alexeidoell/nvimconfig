@@ -4,7 +4,7 @@ require("config.remap")
 
 vim.opt.colorcolumn = "80"
 vim.opt.signcolumn = "no"
--- vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)

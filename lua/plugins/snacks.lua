@@ -63,6 +63,7 @@ return {
         },
         keys = {
             {"<leader>pd", function() Snacks.picker.files() end },
+            {"<leader>pe", function() Snacks.dashboard() end },
             {"<leader>ps", function() Snacks.picker.grep() end },
             {"<leader>pf", function() Snacks.picker.smart() end },
             {"<leader>pg", function() Snacks.picker.git_files() end },
