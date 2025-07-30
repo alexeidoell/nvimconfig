@@ -31,7 +31,7 @@ return {
                 ['<C-l>'] = { 'select_and_accept' },
 
                 ['<C-k>'] = { 'select_prev', 'fallback' },
-                ['<C-j>'] = { 'select_next', 'fallback' },
+                ['<C-j>'] = { 'select_next', 'show', 'fallback' },
                 ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
                 ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
 

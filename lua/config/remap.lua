@@ -6,11 +6,16 @@ end)
 vim.keymap.set("n", "<leader>pq", "<CMD>Lazy<CR>")
 
 
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "J", "mzJ`z")
+-- could maybe think about what i actually want to do with these keybinds
+-- but for now this is easy and not confusing
+-- i would like to make them do something useful though
+vim.keymap.set("n", "<C-k>", "k")
+vim.keymap.set("n", "K", "k")
+-- vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "j")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
