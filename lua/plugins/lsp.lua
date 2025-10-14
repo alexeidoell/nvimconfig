@@ -101,6 +101,7 @@ return {
                 ensure_installed = {
                     "clangd",
                     "emmylua_ls",
+                    "jdtls",
                 }
             })
 

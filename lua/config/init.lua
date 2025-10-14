@@ -32,5 +32,6 @@ vim.lsp.enable({
     'lemminx',
     'rust_analyzer',
     'jdtls',
+    'basedpyright',
 })
 
