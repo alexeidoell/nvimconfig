@@ -1,7 +1,7 @@
 return {
     {
         "folke/persistence.nvim",
-        event = "BufReadPre",
+        lazy = false,
         opts = {},
     },
     {
@@ -150,6 +150,9 @@ return {
 --- cringe vim plugins...
 {
     "mbbill/undotree",
+    config = function()
+        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    end,
 },
 {
     "tpope/vim-fugitive",

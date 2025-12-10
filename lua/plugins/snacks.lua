@@ -10,7 +10,9 @@ return {
                 preset = {
                     keys = {
                         { icon = "", key = "e", desc = "explorer", action = "<CMD>Oil<CR>" },
-                        { icon = "", key = "r", desc = "recent file", section = "session" },
+                        { icon = "", key = "r", desc = "recent file", action = function()
+                            require("persistence").load()
+                        end, },
                         { icon = "", key = "f", desc = "find file", action = ":lua Snacks.dashboard.pick('smart')", },
                         { icon = "", key = "n", desc = "new file", action = ":ene | startinsert" },
                         { icon = "", key = "s", desc = "search text", action = ":lua Snacks.dashboard.pick('live_grep')" },
@@ -32,6 +34,7 @@ return {
                                 return M.open(opts)
                             end,
                         })
+                        --[[
                         M.lazy_stats = M.lazy_stats and M.lazy_stats.startuptime > 0 and M.lazy_stats or require("lazy.stats").stats()
                         local ms = (math.floor(M.lazy_stats.startuptime * 100 + 0.5) / 100)
                         return {
@@ -43,6 +46,7 @@ return {
                                 { ms .. "ms", hl = "special" },
                             },
                         }
+                        --]]
 
                     end,
                 }
