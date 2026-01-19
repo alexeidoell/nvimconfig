@@ -1,11 +1,11 @@
 return {
         {
         "nvim-treesitter/nvim-treesitter",
-        lazy = true,
-        event = "BufReadPre",
+        lazy = false,
+        build = ":TSUpdate",
         config = function()
             -- A list of parser names, or "all"
-            local configs = require("nvim-treesitter.configs")
+            local configs = require("nvim-treesitter")
             configs.setup({
             ensure_installed = { "vimdoc", "c", "lua", "cpp", "markdown", "rust", "regex" },
 
@@ -29,9 +29,6 @@ return {
                 disable = { 'xml' },
             },
         })
-        end,
-        build = function()
-            require("nvim-treesitter.install").update( { with_sync = true })
         end,
     },
     {
@@ -110,9 +107,4 @@ return {
             require('luasnip.loaders.from_vscode').lazy_load()
         end,
     },]]--
-    {
-        'NMAC427/guess-indent.nvim',
-        lazy = true,
-        event = "BufRead",
-    },
 }
