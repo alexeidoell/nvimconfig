@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    lazy = false,
     config = function()
         -- inspired by https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua 
 

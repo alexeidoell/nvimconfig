@@ -33,6 +33,6 @@ vim.lsp.enable({
     'rust_analyzer',
     'jdtls',
     'tsgo',
-    'basedpyright',
+    'ty',
 })
 

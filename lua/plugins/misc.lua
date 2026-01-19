@@ -156,6 +156,7 @@ return {
 },
 {
     "tpope/vim-fugitive",
+    lazy = false,
 },
 {
     "yutkat/confirm-quit.nvim",
