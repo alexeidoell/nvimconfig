@@ -113,19 +113,20 @@ return {
     },
     {
         "williamboman/mason.nvim",
-        opts = {}
+        config = true,
     },
     {
         "neovim/nvim-lspconfig",
+        lazy = false,
         dependencies =
         {
             { 'williamboman/mason-lspconfig.nvim' },
             { 'L3MON4D3/LuaSnip' },
         },
-        event = "BufReadPre",
         config = function()
             -- doing it like this lets me lazily load all lsp configuration 
             -- but I feel like there has gotta be a better way
+            require("mason").setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     "clangd",

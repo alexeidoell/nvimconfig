@@ -7,7 +7,7 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        opts = {},
+        config = true,
     },
     {
         "theprimeagen/harpoon",
@@ -65,7 +65,7 @@ return {
     },
     {
         "ggandor/leap.nvim",
-        opts = function()
+        config = function()
             require('leap').opts.vim_opts['go.ignorecase'] = true
             require('leap').opts.preview = true
             vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
@@ -89,6 +89,8 @@ return {
 {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
+    lazy = true,
+    event = "BufReadPre",
     config = function()
         local mc = require("multicursor-nvim")
         mc.setup()
@@ -156,7 +158,9 @@ return {
 },
 {
     "tpope/vim-fugitive",
-    lazy = false,
+    config = function()
+        vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+    end,
 },
 {
     "yutkat/confirm-quit.nvim",
