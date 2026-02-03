@@ -64,7 +64,7 @@ return {
         },
     },
     {
-        "ggandor/leap.nvim",
+        url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             require('leap').opts.vim_opts['go.ignorecase'] = true
             require('leap').opts.preview = true
@@ -155,6 +155,22 @@ return {
     config = function()
         vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
     end,
+},
+{
+    "f-person/git-blame.nvim",
+    -- load the plugin at startup
+    config = function()
+        local plugin = require("gitblame")
+        plugin.setup({
+        -- your configuration comes here
+        -- for example
+        enabled = false,  -- if you want to enable the plugin
+        message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+        date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+        virtual_text_column = 1,  -- virtual text start column, check Start virtual text at column section for more options
+    })
+    vim.keymap.set("n", "<leader>gb", "<Cmd>GitBlameToggle<CR>")
+end
 },
 {
     "tpope/vim-fugitive",
