@@ -15,7 +15,10 @@ return {
         -- optional: provides snippets for the snippet source
         lazy = true,
         event = "InsertEnter",
-        dependencies = 'rafamadriz/friendly-snippets',
+        dependencies = { 
+            'rafamadriz/friendly-snippets',
+            'fang2hou/blink-copilot'
+        },
 
         -- use a release tag to download pre-built binaries
         -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -39,7 +42,20 @@ return {
             -- See the full "keymap" documentation for information on defining your own keymap.
             keymap = {
                 ['<C-h>'] = { 'show', 'hide' },
-                ['<C-l>'] = { 'select_and_accept' },
+                ['<C-l>'] = { function(cmp)
+                    if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+                        cmp.hide()
+                        return (
+                            require("copilot-lsp.nes").apply_pending_nes()
+                            and require("copilot-lsp.nes").walk_cursor_end_edit()
+                        )
+                    end
+                    if cmp.snippet_active() then
+                        return cmp.accept()
+                    else
+                        return cmp.select_and_accept()
+                    end
+                end, },
 
                 ['<C-k>'] = { 'select_prev', 'fallback' },
                 ['<C-j>'] = { 'select_next', 'show', 'fallback' },
@@ -75,19 +91,29 @@ return {
                         auto_insert = true
                     }
                 },
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 500,
+                }
             },
 
 
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
-                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
                 providers = {
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
                         -- make lazydev completions top priority (see `:h blink.cmp`)
                         score_offset = 100,
+                    },
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-copilot",
+                        score_offset = 100,
+                        async = true,
                     },
                 },
             },

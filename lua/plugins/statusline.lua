@@ -232,7 +232,7 @@ return {
                 separator = '',
             },
             -- List of LSP names to ignore (e.g., `null-ls`):
-            ignore_lsp = {},
+            ignore_lsp = {'copilot', 'copilot_ls'},
             padding = {left = 0, right = 0},
             color = { fg = palette.sangoGreen, gui = 'bold' },
         }
