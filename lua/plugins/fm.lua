@@ -1,6 +1,7 @@
 return {
     "stevearc/oil.nvim",
     lazy = false,
+    priority = 0,
     opts = {
         default_file_explorer = true,
         view_options = {

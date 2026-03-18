@@ -129,6 +129,7 @@ return {
     },
     {
         "williamboman/mason.nvim",
+        priority = 0,
         config = true,
     },
     {
