@@ -31,7 +31,7 @@ return {
             end,
         })
             vim.lsp.enable("copilot_ls")
-            vim.keymap.set("n", "<C-l>", function()
+            vim.keymap.set("n", "<leader>an", function()
                 local bufnr = vim.api.nvim_get_current_buf()
                 local state = vim.b[bufnr].nes_state
                 if state then
@@ -40,10 +40,8 @@ return {
                         require("copilot-lsp.nes").apply_pending_nes()
                         and require("copilot-lsp.nes").walk_cursor_end_edit()
                     )
-                    return nil
-                else
-                    return "<C-l>"
                 end
+                return "<leader>"
             end, { desc = "Accept Copilot NES suggestion", expr = true })
         end,
     },

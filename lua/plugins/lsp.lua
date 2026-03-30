@@ -42,21 +42,7 @@ return {
             -- See the full "keymap" documentation for information on defining your own keymap.
             keymap = {
                 ['<C-h>'] = { 'show', 'hide' },
-                ['<C-l>'] = { function(cmp)
-                    if vim.b[vim.api.nvim_get_current_buf()].nes_state then
-                        cmp.hide()
-                        return (
-                            require("copilot-lsp.nes").apply_pending_nes()
-                            and require("copilot-lsp.nes").walk_cursor_end_edit()
-                        )
-                    end
-                    if cmp.snippet_active() then
-                        return cmp.accept()
-                    else
-                        return cmp.select_and_accept()
-                    end
-                end, },
-
+                ['<C-l>'] = { 'accept', 'select_and_accept' },
                 ['<C-k>'] = { 'select_prev', 'fallback' },
                 ['<C-j>'] = { 'select_next', 'show', 'fallback' },
                 ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
