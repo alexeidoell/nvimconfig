@@ -4,3 +4,7 @@ vim.lsp.config('clangd', {
         fallbackFlags = { 'I.', '-Wall', '-pedantic' }
     },
 })
+
+vim.lsp.config('jdtls', {
+    root_markers = { { '.git' } },
+})
