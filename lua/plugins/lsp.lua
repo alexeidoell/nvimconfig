@@ -46,7 +46,7 @@ return {
             keymap = {
                 ['<C-h>'] = { 'show', 'hide' },
                 ['<C-l>'] = { 'accept', 'select_and_accept' },
-                ['<C-k>'] = { 'select_prev', 'fallback' },
+                ['<C-k>'] = { 'select_prev', 'show_signature', 'hide_signature', 'fallback' },
                 ['<C-j>'] = { 'select_next', 'show', 'fallback' },
                 ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
                 ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
@@ -104,6 +104,17 @@ return {
                         score_offset = 100,
                         async = true,
                     },
+                },
+            },
+
+            signature = { 
+                enabled = true,
+                window = {
+                    show_documentation = false
+                },
+                trigger = {
+                    enabled = false,
+
                 },
             },
 
