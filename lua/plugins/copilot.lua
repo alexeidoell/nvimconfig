@@ -30,7 +30,6 @@ return {
                 end)
             end,
         })
-            vim.lsp.enable("copilot_ls")
             vim.keymap.set("n", "<leader>an", function()
                 local bufnr = vim.api.nvim_get_current_buf()
                 local state = vim.b[bufnr].nes_state
