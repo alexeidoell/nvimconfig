@@ -16,6 +16,7 @@ return {
         lazy = true,
         event = "InsertEnter",
         dependencies = { 
+            'saghen/blink.lib',
             'rafamadriz/friendly-snippets',
             'fang2hou/blink-copilot'
         },
@@ -25,7 +26,9 @@ return {
         -- build = 'cargo build --release',
         -- If you use nix, you can build from source using latest nightly rust with:
         -- build = 'nix run .#build-plugin',
-        build = 'cargo build --release',
+        build = function()
+            require('blink.cmp').build():pwait()
+        end,
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
@@ -109,7 +112,7 @@ return {
             -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
             --
             -- See the fuzzy documentation for more information
-            fuzzy = { implementation = "prefer_rust_with_warning" }
+            fuzzy = { implementation = "rust" }
         },
         opts_extend = { "sources.default" }
     },
