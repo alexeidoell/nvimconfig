@@ -1,7 +1,7 @@
 return {
     {
         "folke/persistence.nvim",
-        lazy = false,
+        event = "BufReadPre",
         opts = {},
     },
     {
@@ -15,17 +15,18 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim"
         },
-        opts = function()
-            local harpoon = require("harpoon")
-
-            vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-            vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-            vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-            vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-            vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-            vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
-        end,
+        keys = {
+            { "<leader>a", function() require("harpoon"):list():add() end },
+            { "<C-e>", function()
+                local harpoon = require("harpoon")
+                harpoon.ui:toggle_quick_menu(harpoon:list())
+            end },
+            { "<leader>1", function() require("harpoon"):list():select(1) end },
+            { "<leader>2", function() require("harpoon"):list():select(2) end },
+            { "<leader>3", function() require("harpoon"):list():select(3) end },
+            { "<leader>4", function() require("harpoon"):list():select(4) end },
+        },
+        opts = {},
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
@@ -65,11 +66,13 @@ return {
     },
     {
         url = "https://codeberg.org/andyg/leap.nvim",
+        keys = {
+            { "s", "<Plug>(leap)", mode = { "n", "x", "o" } },
+            { "S", "<Plug>(leap-from-window)" },
+        },
         config = function()
             require('leap').opts.vim_opts['go.ignorecase'] = true
             require('leap').opts.preview = true
-            vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
-            vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
             require('leap').opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
 
             -- Use the traversal keys to repeat the previous motion without
@@ -152,13 +155,17 @@ return {
 --- cringe vim plugins...
 {
     "mbbill/undotree",
-    config = function()
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-    end,
+    cmd = "UndotreeToggle",
+    keys = {
+        { "<leader>u", vim.cmd.UndotreeToggle },
+    },
 },
 {
     "f-person/git-blame.nvim",
-    -- load the plugin at startup
+    cmd = "GitBlameToggle",
+    keys = {
+        { "<leader>gb", "<Cmd>GitBlameToggle<CR>" },
+    },
     config = function()
         local plugin = require("gitblame")
         plugin.setup({
@@ -169,14 +176,14 @@ return {
         date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
         virtual_text_column = 1,  -- virtual text start column, check Start virtual text at column section for more options
     })
-    vim.keymap.set("n", "<leader>gb", "<Cmd>GitBlameToggle<CR>")
 end
 },
 {
     "tpope/vim-fugitive",
-    config = function()
-        vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-    end,
+    cmd = { "Git", "G" },
+    keys = {
+        { "<leader>gs", vim.cmd.Git },
+    },
 },
 {
     "yutkat/confirm-quit.nvim",

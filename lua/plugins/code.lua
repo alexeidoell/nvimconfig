@@ -1,7 +1,7 @@
 return {
         {
         "nvim-treesitter/nvim-treesitter",
-        lazy = false,
+        event = { "BufReadPre", "BufNewFile" },
         build = ":TSUpdate",
         config = function()
             -- A list of parser names, or "all"

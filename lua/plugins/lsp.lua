@@ -129,12 +129,11 @@ return {
     },
     {
         "williamboman/mason.nvim",
-        priority = 0,
-        config = true,
+        lazy = true,
     },
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
+        event = { "BufReadPre", "BufNewFile" },
         dependencies =
         {
             { 'williamboman/mason-lspconfig.nvim' },

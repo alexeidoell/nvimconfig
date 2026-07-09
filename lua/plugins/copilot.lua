@@ -1,7 +1,7 @@
 return {
     {
         "copilotlsp-nvim/copilot-lsp",
-        event = "BufEnter",
+        event = { "BufReadPost", "BufNewFile", "InsertEnter" },
         opts = function()
             vim.g.copilot_nes_debounce = 500
         vim.lsp.config("copilot", {
