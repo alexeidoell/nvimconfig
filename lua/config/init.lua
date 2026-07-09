@@ -26,13 +26,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
 end,
 })
 
-vim.lsp.enable({
-    'emmylua_ls',
-    'clangd',
-    'lemminx',
-    'rust_analyzer',
-    'jdtls',
-    'tsgo',
-    'ty',
-})
-

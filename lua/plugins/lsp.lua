@@ -146,6 +146,7 @@ return {
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     "clangd",
+                    "copilot",
                     "emmylua_ls",
                     "jdtls",
                 }
